@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-import covid.utilities.utilities as utilities   #create a utility folder that has functions which get tags and books etc
+import library.utilities.utilities as utilities   #create a utility folder that has functions which get tags and books etc
 
 '''have to modify'''
 home_blueprint = Blueprint(
