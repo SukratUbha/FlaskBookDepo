@@ -1,6 +1,6 @@
 import json
 from typing import List
-
+from pathlib import Path
 from library.domain.model import Publisher, Author, Book
 
 
@@ -64,3 +64,12 @@ class BooksJSONReader:
                 book_instance.add_author(Author(numerical_id, author_name))
 
             self.__dataset_of_books.append(book_instance)
+
+
+
+# authors_filename = 'data/book_authors_excerpt.json'
+# books_filename = 'data/comic_books_excerpt.json'
+# reader = BooksJSONReader(books_filename , authors_filename)
+# reader.read_json_files()
+#
+# print(reader.dataset_of_books)

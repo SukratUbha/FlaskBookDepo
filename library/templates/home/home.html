@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for book in all_books%}
+        <div id="article-description" align="centre">
+            <p>({{ book.title }}, {{ book.book_id }}).</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
