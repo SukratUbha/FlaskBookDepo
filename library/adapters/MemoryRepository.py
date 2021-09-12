@@ -19,6 +19,8 @@ class MemoryRepository(AbstractRepository):
         self.__tags = list()
         self.__users = list()
         self.__comments = list()
+    def dataset_of_books(self):
+        pass
 
 def read_datasets():
     authors_filename = 'library/adapters/data/book_authors_excerpt.json'

@@ -1,12 +1,9 @@
 import abc
 from typing import List
 from datetime import date
-
 from library.domain.model import Publisher, Author, Book
-
-
 repo_instance = None
-
+books = None
 
 class RepositoryException(Exception):
 

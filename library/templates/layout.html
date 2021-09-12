@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The Book Repository</title>
+
+    <link
+      rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='css/main.css') }}"/>
+<!--      href="{{ url_for('static', filename='css/main.css') }}"-->
+
+
+  </head>
+
+<!--  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
+
+  <body>
+        <div id="container">
+          {% include 'navbar.html' %}
+          <!-- Main content block to be supplied by page. -->
+          {% block content %}
+          {% endblock %}
+          {% extends 'footer.html' %}
+        </div>
+  </body>
+</html>

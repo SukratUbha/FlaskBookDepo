@@ -25,15 +25,14 @@ def create_app(test_config=None):
         # Load test configuration, and override any configuration settings.
         app.config.from_mapping(test_config)
 
-    # repo.repo_instance = MemoryRepository()
-    print("here")
-    read_datasets()
+    repo.repo_instance = MemoryRepository()
+    repo.books = read_datasets()
     with app.app_context():
         # Register blueprints.
         from .Home import home
         app.register_blueprint(home.home_blueprint)
-
-
+        from .search import search
+        app.register_blueprint(search.search_blueprint)
         # from .utilities import utilities
         # app.register_blueprint(utilities.utilities_blueprint)
 

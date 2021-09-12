@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% for book in all_books%}
-        <div id="article-description" align="centre">
-            <p>({{ book.title }}, {{ book.book_id }}).</p>
-        </div>
-    {% endfor %}
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block content %}
+<main id="main">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Books</title>
+    </head>
+    <body>
+        {% for book in all_books%}
+            <div class = "parent">
+                <img src="static/images/the-switchblade-mamma.jpg" style="width:10%;height:10%" class="center">
+                <div class = "child-one child">
+                    <h3 class="book-title">{{ book.title }}</h3>
+                    <p>Author: {{book.authors[0].full_name  }}</p>
+                    <p>Publisher:  {{book.publisher.name}}</p>
+
+                </div>
+
+            </div>
+        {% endfor %}
+    </body>
+    </html>
+</main>
+{% endblock %}
