@@ -11,15 +11,15 @@
 <div class="cards">
     {% for book in all_books%}
       <div class="card">
-        <img class="card__image" src="https://fakeimg.pl/400x300/009578/fff/" alt="">
+        <img class="card__image" src="{{book.img}}" alt="">
         <div class="card__content">
-          <h3> {{ book.title }}</h3>
+          <h3 class="book_title"> {{ book.title }}</h3>
             <p>Author: {{book.authors[0].full_name  }}</p>
             <p>Publisher:  {{book.publisher.name}}</p>
         </div>
         <div class="card__info">
           <div>
-            <a href="./" class="card__link">View Article</a>
+            <a href="/Book/{{ book.book_id }}" class="card__link">View Book</a>
           </div>
         </div>
       </div>

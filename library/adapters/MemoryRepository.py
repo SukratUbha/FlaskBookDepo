@@ -3,24 +3,43 @@ from datetime import date, datetime
 from typing import List
 from library.adapters.jsondatareader import BooksJSONReader
 from bisect import bisect, bisect_left, insort_left
-
+import library.adapters.repository as repo
 from werkzeug.security import generate_password_hash
 
 from library.adapters.repository import AbstractRepository, RepositoryException
-from library.domain.model import Publisher, Author, Book
+from library.domain.model import Publisher, Author, Book, User
 
 
 class MemoryRepository(AbstractRepository):
-    # Articles ordered by date, not id. id is assumed unique.
-
     def __init__(self):
-        self.__articles = list()
-        self.__articles_index = dict()
-        self.__tags = list()
         self.__users = list()
-        self.__comments = list()
-    def dataset_of_books(self):
-        pass
+
+    def add_user(self, user: User):
+        return "S"
+
+    def search_filter(self, q):
+        search_output = []
+        search_mismatch = []
+        for i in repo.books:
+            if q.lower() in i.title.lower():
+                search_output.append(i)
+            elif q.lower() in i.authors[0].full_name.lower():
+                search_output.append(i)
+            elif q in str(i.release_year):
+                search_output.append(i)
+            else:
+                search_mismatch.append(i)
+        search_output += search_mismatch
+        return search_output
+
+    def get_book_by_id(self, id_id):
+        print(id_id)
+        for i in repo.books:
+
+            if str(id_id) == str(i.book_id):
+                return i
+        return Book(404, "Not Found")
+
 
 def read_datasets():
     authors_filename = 'library/adapters/data/book_authors_excerpt.json'

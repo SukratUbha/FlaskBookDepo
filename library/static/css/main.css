@@ -45,20 +45,24 @@ color: blue;
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 50px;
   text-decoration: none;
   font-size: 17px;
+}
+.search_button{
+height:28px;
+margin-top: 10px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #e1d798;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #413e32;
   color: white;
 }
 
@@ -89,8 +93,8 @@ color: blue;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
     grid-auto-rows: auto;
-    gap: 20px;
-    font-family: sans-serif;
+    gap: 30px;
+    font-family: American Typewriter (serif);
     padding-top: 30px;
 }
 
@@ -111,10 +115,17 @@ color: blue;
 .card__content {
     line-height: 1.5;
     font-size: 0.9em;
-    padding: 15px;
+    padding: 18px;
     background: #fafafa;
     border-right: 2px solid #333333;
     border-left: 2px solid #333333;
+}
+.search_bar{
+margin-left: 2%;
+width: 600px;
+height: 35px;
+margin-top: 6px;
+font-size: 16px;
 }
 
 .card__content > p:first-of-type {

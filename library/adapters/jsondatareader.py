@@ -40,6 +40,9 @@ class BooksJSONReader:
             book_instance = Book(int(book_json['book_id']), book_json['title'])
             book_instance.publisher = Publisher(book_json['publisher'])
 
+            if book_json['image_url']:
+                book_instance.img = book_json['image_url']
+
             if book_json['publication_year'] != "":
                 book_instance.release_year = int(book_json['publication_year'])
             if book_json['is_ebook'].lower() == 'false':
@@ -73,4 +76,4 @@ class BooksJSONReader:
 # reader = BooksJSONReader(books_filename , authors_filename)
 # reader.read_json_files()
 # print(reader.dataset_of_books[0])
-# print(reader.dataset_of_books[0].authors[0].full_name)
+# # print(reader.dataset_of_books[0].authors[0].full_name)

@@ -116,11 +116,17 @@ class Book:
         self.__release_year = None
         self.__ebook = None
         self.__num_pages = None
-
+        self.__book_image = "No Image"
 
     @property
     def book_id(self) -> int:
         return self.__book_id
+    @property
+    def book_image(self)-> str:
+        return self.__book_image
+    @book_image.setter
+    def book_image(self, img_url):
+        self.__book_image = img_url
 
     @property
     def title(self) -> str:
