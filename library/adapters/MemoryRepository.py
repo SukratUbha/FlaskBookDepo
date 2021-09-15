@@ -23,7 +23,7 @@ class MemoryRepository(AbstractRepository):
         for i in repo.books:
             if q.lower() in i.title.lower():
                 search_output.append(i)
-            elif q.lower() in i.authors[0].full_name.lower():
+            elif q.lower() in i.authorString.lower():
                 search_output.append(i)
             elif q in str(i.release_year):
                 search_output.append(i)

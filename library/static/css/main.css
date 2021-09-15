@@ -1,35 +1,32 @@
-body{
-
-}
-
 .parent {
-    position: relative;
-    top: 10px;
+    position: absolute;
+    left: -10%;
+    top: 20%;
     text-align: center;
-    left: -80px;
+
 }
 .app {
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, 200px);
 }
-
-.book-title{
-color: blue;
-}
 .child-one {
-    position: absolute;
+    vertical-align: top;
+    position: relative;
     top: -20px;
-    left: 56%;
+    left: 3%;
     text-align: left;
-    max-width: 300px;
-    min-width: 300px;
+    max-width: 40%;
+    max-height: 80%;
+
     margin: auto;
     display: inline-block;
 
-    text-align: -webkit-auto;
-    -webkit-text-stroke: thin;
-     vertical-align: -webkit-baseline-middle;
+    text-align: -webkit-auto;*/
+}
+.full-book-image{
+    width: 18%;
+    height: 18%;
 }
 .container{
     background-color: #EBEBEB;
@@ -122,7 +119,7 @@ margin-top: 10px;
 }
 .search_bar{
 margin-left: 2%;
-width: 600px;
+width: 45%;
 height: 35px;
 margin-top: 6px;
 font-size: 16px;

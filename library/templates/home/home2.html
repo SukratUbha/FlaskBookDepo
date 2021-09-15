@@ -14,8 +14,8 @@
         <img class="card__image" src="{{book.img}}" alt="">
         <div class="card__content">
           <h3 class="book_title"> {{ book.title }}</h3>
-            <p>Author: {{book.authors[0].full_name  }}</p>
-            <p>Publisher:  {{book.publisher.name}}</p>
+            <p><b>Author:</b> {{book.authorString }}</p>
+            <p><b>Publisher:</b>  {{book.publisher.name}}</p>
         </div>
         <div class="card__info">
           <div>

@@ -1,11 +1,24 @@
 <!DOCTYPE html>
+{% include 'navbar.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Book Information</title>
+        <link
+      rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='css/main.css') }}"/>
 </head>
 <body>
-    <p> herererer</p>
-    <p>{{ book.book_id }}</p>
+    <div class="parent">
+        <img class="full-book-image" src="{{book.img}}" alt="" height="450px">
+        <div class="child-one child">
+            <h3 class="book_title"> {{ book.title }}</h3>
+            <p><b>Author:</b> {{ book.authorString }}</p>
+            <p><b>Description:</b> {{ book.description }}</p>
+            <p><b>Publisher:</b>  {{book.publisher.name}}</p>
+        </div>
+
+        <p>{{ book.book_id }}</p>
+
+    </div>
 </body>
 </html>

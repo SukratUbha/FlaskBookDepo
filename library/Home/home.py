@@ -14,6 +14,7 @@ home_blueprint = Blueprint(
 
 @home_blueprint.route('/', methods=['GET'])
 def home():
+    print("weew",books[4].authorString)
     # print(vars(books[0]))
     # print(books[0].book_image)
     # return render_template('simple_book.html',book = book)

@@ -39,10 +39,9 @@ class BooksJSONReader:
         for book_json in books_json:
             book_instance = Book(int(book_json['book_id']), book_json['title'])
             book_instance.publisher = Publisher(book_json['publisher'])
-
+            authorString = []
             if book_json['image_url']:
                 book_instance.img = book_json['image_url']
-
             if book_json['publication_year'] != "":
                 book_instance.release_year = int(book_json['publication_year'])
             if book_json['is_ebook'].lower() == 'false':
@@ -56,8 +55,9 @@ class BooksJSONReader:
 
             # extract the author ids:
             list_of_authors_ids = book_json['authors']
+            # print(list_of_authors_ids)
             for author_id in list_of_authors_ids:
-
+                # print("jsondatareader", author_id)
                 numerical_id = int(author_id['author_id'])
                 # We assume book authors are available in the authors file,
                 # otherwise more complex handling is required.
@@ -65,7 +65,22 @@ class BooksJSONReader:
                 for author_json in authors_json:
                     if int(author_json['author_id']) == numerical_id:
                         author_name = author_json['name']
+                        role = author_id['role']
+                        if not role == "":
+                            authorString.append(f' {author_name} ({role})')
+                        else:
+                            authorString.append(f' {author_name}')
+                book_instance.authorString = ""
+                for i in range(len(authorString)):
+                    if i == len(authorString) -1:
+                        book_instance.authorString += authorString[i]
+                    else:
+                        book_instance.authorString += authorString[i]
+                        book_instance.authorString += " and "
+                # book_instance.authorString = authorString
                 book_instance.add_author(Author(numerical_id, author_name))
+            # print(book_instance.authorString)
+            # print("a string", authorString)
 
             self.__dataset_of_books.append(book_instance)
 
