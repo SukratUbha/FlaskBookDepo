@@ -21,9 +21,12 @@ class MemoryRepository(AbstractRepository):
         search_output = []
         search_mismatch = []
         for i in repo.books:
+            tString = " ".join(i.authorString.split()).lower()
             if q.lower() in i.title.lower():
                 search_output.append(i)
-            elif q.lower() in i.authorString.lower():
+            elif q.lower() in tString:
+                search_output.append(i)
+            elif q.lower() in i.publisher.name.lower():
                 search_output.append(i)
             elif q in str(i.release_year):
                 search_output.append(i)
