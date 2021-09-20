@@ -26,3 +26,7 @@ class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def get_book_by_id(self, id):
         raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_user(self, user_name) -> User:
+        raise NotImplementedError

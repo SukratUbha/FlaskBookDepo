@@ -31,8 +31,12 @@ def create_app(test_config=None):
         # Register blueprints.
         from .Home import home
         app.register_blueprint(home.home_blueprint)
+
         from .search import search
         app.register_blueprint(search.search_blueprint)
+
+        from .Authentication import Authentication
+        app.register_blueprint(Authentication.authentication_blueprint)
         # from .utilities import utilities
         # app.register_blueprint(utilities.utilities_blueprint)
 

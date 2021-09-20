@@ -14,9 +14,6 @@ class MemoryRepository(AbstractRepository):
     def __init__(self):
         self.__users = list()
 
-    def add_user(self, user: User):
-        return "S"
-
     def search_filter(self, q):
         search_output = []
         search_mismatch = []
@@ -42,6 +39,13 @@ class MemoryRepository(AbstractRepository):
             if str(id_id) == str(i.book_id):
                 return i
         return Book(404, "Not Found")
+
+    def add_user(self, user: User):
+        print(user)
+        self.__users.append(user)
+
+    def get_user(self, user_name) -> User:
+        return next((user for user in self.__users if user.user_name == user_name), None)
 
 
 def read_datasets():

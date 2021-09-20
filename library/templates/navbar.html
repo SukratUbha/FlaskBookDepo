@@ -5,16 +5,23 @@
     <title>Navigation</title>
 </head>
 <body>
+
+
 <div class="topnav">
   <a class="active" href="{{ url_for('home_bp.home') }}">Home</a>
-  <a href="#contact">Login</a>
-  <a href="#about">Logout</a>
+  <a href="{{ url_for('authentication_bp.register') }}">Register</a>
+  <a href="{{ url_for('authentication_bp.login') }}">Login</a>
+  <a href="{{ url_for('authentication_bp.logout') }}">Logout</a>
     <form action="{{ url_for('search_bp.search') }}" class = "form-search" method="GET">
         <input class = 'search_bar' type="search" name="q" placeholder="Title, Author, Publisher, Publication Year...">
         <button class="search_button" type="submit">Search</button>
     </form>
 <!--     href = "{{ url_for('search_bp.search') }}-->
 </div>
+    <h2 id="nav-header">
+    {% if 'user_name' in session %} Hello, {{ session['user_name'] }} {%
+    endif %}
+  </h2>
 
 
 </body>
