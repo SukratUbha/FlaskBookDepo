@@ -3,16 +3,6 @@ import library.adapters.repository as repo
 from pathlib import Path
 from library.domain.model import Book
 from library.adapters.MemoryRepository import MemoryRepository, read_datasets
-
-def create_some_book():
-    some_book = Book(1, "Harry Potter and the Chamber of Secrets")
-    some_book.description = "Ever since Harry Potter had come home for the summer, the Dursleys had been so mean \
-                             and hideous that all Harry wanted was to get back to the Hogwarts School for \
-                             Witchcraft and Wizardry. But just as he’s packing his bags, Harry receives a \
-                             warning from a strange impish creature who says that if Harry returns to Hogwarts, \
-                             disaster will strike."
-    some_book.release_year = 1999
-    return some_book
     # Configure the app from configuration-file settings.
 
 
@@ -21,12 +11,18 @@ def create_app(test_config=None):
 
     app.config.from_object('config.Config')
 
+    data_path = Path('library') / 'adapters' / 'data'
     if test_config is not None:
         # Load test configuration, and override any configuration settings.
         app.config.from_mapping(test_config)
-
+        data_path = app.config['TEST_DATA_PATH']
+    # authors_filename = 'library/adapters/data/book_authors_excerpt.json'
+    # books_filename = 'library/adapters/data/comic_books_excerpt.json'
+    authors_filename = data_path / 'book_authors_excerpt.json'
+    books_filename = data_path / 'comic_books_excerpt.json'
     repo.repo_instance = MemoryRepository()
-    repo.books = read_datasets()
+    repo.books = read_datasets(books_filename, authors_filename)
+
     with app.app_context():
         # Register blueprints.
         from .Home import home

@@ -47,12 +47,16 @@ class MemoryRepository(AbstractRepository):
     def get_user(self, user_name) -> User:
         return next((user for user in self.__users if user.user_name == user_name), None)
 
-
-def read_datasets():
-    authors_filename = 'library/adapters/data/book_authors_excerpt.json'
-    books_filename = 'library/adapters/data/comic_books_excerpt.json'
+#
+# def read_datasets():
+#     authors_filename = 'library/adapters/data/book_authors_excerpt.json'
+#     books_filename = 'library/adapters/data/comic_books_excerpt.json'
+#     reader = BooksJSONReader(books_filename, authors_filename)
+#     reader.read_json_files()
+#     return reader.dataset_of_books
+    # print(reader.dataset_of_books)
+def read_datasets(books_filename: Path, authors_filename: Path):
     reader = BooksJSONReader(books_filename, authors_filename)
     reader.read_json_files()
     return reader.dataset_of_books
-    # print(reader.dataset_of_books)
 
