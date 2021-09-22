@@ -20,19 +20,19 @@ def test_register(client):
     assert response.headers['Location'] == 'http://localhost/authentication/login'
 #
 #
-# @pytest.mark.parametrize(('user_name', 'password', 'message'), (
-#         ('', '', b'Your user name is required'),
-#         ('cj', '', b'Your user name is too short'),
-#         ('test', '', b'Your password is required'),
-#         ('test', 'test', b'Your password must be at least 8 characters, and contain an upper case letter,\
-#             a lower case letter and a digit'),
-#         ('fmercury', 'Test#6^0', b'Your user name is already taken - please supply another'),
-# ))
-# def test_register_with_invalid_input(client, user_name, password, message):
-#     # Check that attempting to register with invalid combinations of user name and password generate appropriate error
-#     # messages.
-#     response = client.post(
-#         '/authentication/register',
-#         data={'user_name': user_name, 'password': password}
-#     )
-#     assert message in response.data
+@pytest.mark.parametrize(('user_name', 'password', 'message'), (
+        ('', '', b'Your user name is required'),
+        ('cj', '', b'Your user name is too short'),
+        ('test', '', b'Your password is required'),
+        ('test', 'test', b'Your password must be at least 8 characters, and contain an upper case letter,\
+            a lower case letter and a digit'),
+        # ('fmercury', 'Test#6^0', b'Your user name is already taken - please supply another'),
+))
+def test_register_with_invalid_input(client, user_name, password, message):
+    # Check that attempting to register with invalid combinations of user name and password generate appropriate error
+    # messages.
+    response = client.post(
+        '/authentication/register',
+        data={'user_name': user_name, 'password': password}
+    )
+    assert message in response.data
