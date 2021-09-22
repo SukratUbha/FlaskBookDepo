@@ -2,7 +2,6 @@ pytest~=6.2.5
 Flask==1.1.4
 py~=1.10.0
 colorama~=0.4.4
-pip~=21.2.4
 wheel~=0.37.0
 attrs~=21.2.0
 toml~=0.10.2
