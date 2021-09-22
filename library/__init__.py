@@ -3,8 +3,6 @@ import library.adapters.repository as repo
 from pathlib import Path
 from library.domain.model import Book
 from library.adapters.MemoryRepository import MemoryRepository, read_datasets
-    # Configure the app from configuration-file settings.
-
 
 def create_app(test_config=None):
     app = Flask(__name__)
@@ -33,13 +31,5 @@ def create_app(test_config=None):
 
         from .Authentication import Authentication
         app.register_blueprint(Authentication.authentication_blueprint)
-        # from .utilities import utilities
-        # app.register_blueprint(utilities.utilities_blueprint)
 
     return app
-
-    # @app.route('/')
-    # def home():
-    #     some_book = create_some_book()
-    #     # Use Jinja to customize a predefined html page rendering the layout for showing a single book.
-    #     return render_template('simple_book.html', book=some_book)
