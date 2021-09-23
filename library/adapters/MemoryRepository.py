@@ -45,6 +45,7 @@ class MemoryRepository(AbstractRepository):
         self.__users.append(user)
 
     def get_user(self, user_name) -> User:
+        print(self.__users)
         return next((user for user in self.__users if user.user_name == user_name), None)
 
 #
